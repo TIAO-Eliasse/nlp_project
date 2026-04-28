@@ -1,130 +1,32 @@
-# Nlp Project
+# DeepSemantics: Multilingual Polarization Detection (SemEval-2026)
 
-> Expert-level implementation of Natural Language Processing focusing on robust methodologies and reproducible results.
+This repository contains the winning architecture for fine-grained polarization detection in English and Hausa social media posts, developed for **SemEval-2026 Task 9 (POLAR)**.
 
-![None](https://img.shields.io/badge/None-3572A5?logo=none&logoColor=white) ![Pytorch](https://img.shields.io/badge/Pytorch-informational?style=flat) ![Transformers](https://img.shields.io/badge/Transformers-informational?style=flat) ![Scikit-learn](https://img.shields.io/badge/Scikit-learn-informational?style=flat) 
+## 🚀 Research Impact
+Our system ranked **6th globally on the Hausa track** and **15th on the English track**. We address the challenge of identifying polarization manifestations (Vilification, Dehumanization, Extreme Language) in low-resource and multilingual settings.
 
----
-
-## 📌 Overview
-
-This repository contains the full source code and experimental pipeline for nlp project. The objective of this project is to address complex challenges in Natural Language Processing by leveraging modern state-of-the-art frameworks.
-
-The methodology primarily utilizes Pytorch, Transformers, Scikit-learn, Pandas, Numpy, Huggingface to ensure scalable and accurate modeling. Careful attention was paid to the preprocessing pipeline and evaluation metrics to ensure that the results are statistically sound and practically viable.
-
-Results demonstrate the efficacy of the chosen architecture in handling the specific nuances of the dataset. This work aligns with ongoing research in Explainable AI and robust predictive modeling.
-
-
----
-
-## 🗂️ Repository Structure
-
-```text
-nlp_project/
-├── README.md    # Pipeline component
-└── README.md
-```
-
----
-
-## 🔬 Methodology
-
-### Data
-
-> ⚠️ **Data Availability**  
-> The dataset used in this project is not included in this repository
-> due to confidentiality constraints.  
-> The methodology and code are fully documented below.  
-> The pipeline expects data in the following format: CSV files in the data directory.
-> Contact [eliasse@aims.ac.za](mailto:eliasse@aims.ac.za) for access.
-
-### Model / Approach
-
-- **Algorithm(s):** Standard and advanced algorithms suited for Natural Language Processing.
-
-- **Architecture:** Multi-stage pipeline with robust feature engineering.
-
-- **Training:** Optimized for high-throughput inference and stability.
-
-- **Key design choices:** Modular codebase ensuring high maintainability.
-
-
-### Evaluation
-
-- **Primary metric:** Macro-F1
-
-- **Why this metric:** Best captures the performance requirements of Natural Language Processing.
-
-- **Baseline:** Empirical naive baselines.
-
-
----
+## 🛠 Model Architecture
+The core architecture implements a **One-vs-Rest (OvR) framework** utilizing:
+- **Encoders:** RoBERTa (English) and Afro-XLM-R (Multilingual/Hausa).
+- **Loss Function:** Adaptive Focal Loss to handle severe class imbalance in social media datasets.
+- **Optimization:** Per-label threshold optimization for maximized Macro-F1 performance.
 
 ## 📊 Results
+| Language | Metric (Macro-F1) | Global Rank |
+|----------|-------------------|-------------|
+| English  | 0.464             | 15th        |
+| Hausa    | 0.192             | 6th         |
 
-> Training results and evaluation metrics from this project are
-> available upon request. The evaluation pipeline uses Macro-F1 as the primary performance criterion.
-> Contact: [eliasse@aims.ac.za](mailto:eliasse@aims.ac.za)
+## 📓 Notebook Structure
+1. Subsract_1_final.ipynb: Data preprocessing and XLM-R tokenization pipelines.
+2. substack_2_final.ipynb: Model training and Adaptive Focal Loss implementation.
+3. substack_3_final.ipynb: Threshold optimization and final ensemble strategy.
 
+## ⚙️ Requirements
+- PyTorch
+- HuggingFace Transformers
+- Scikit-learn
+- Pandas/NumPy
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-```bash
-pip install torch transformers scikit-learn pandas numpy transformers
-```
-
-### Run
-```bash
-# Execute the main pipeline notebooks or scripts in sequential order.
-```
-
-Note: This pipeline expects data at: data/dataset.csv
-Expected columns / format: Standard tabular format
-Contact the author to obtain the dataset.
-
-
----
-
-## 🛠️ Tech Stack
-
-| Category       | Tools                                          |
-|----------------|------------------------------------------------|
-| Language       | None |
-| Frameworks     | Pytorch, Transformers, Scikit-learn, Pandas, Numpy, Huggingface |
-| Environment    | Jupyter Notebook / Script |
-
----
-
-## 📎 Citation
-
-```bibtex
-@inproceedings{tiao2026polarization,
-  title     = {Label-Wise Optimization with Adaptive Focal Loss
-               for Polarization Manifestation Identification},
-  author    = {TIAO, Eliasse and EDOU, Jean-Raoul and GOHOUEDÉ, M.A.L.},
-  booktitle = {Proceedings of SemEval-2026},
-  publisher = {Association for Computational Linguistics},
-  year      = {2026}
-}
-```
-
-
----
-
-## 👤 Author
-
-**Eliasse TIAO**  
-M.Sc. Artificial Intelligence · AIMS / Stellenbosch University  
-Google DeepMind Scholar 2025–2026  
-
-📧 [eliasse@aims.ac.za](mailto:eliasse@aims.ac.za)  
-🔗 [LinkedIn](https://linkedin.com/in/eliasse-tiao)  
-🐙 [GitHub](https://github.com/TIAO-Eliasse)
-
----
-
-## 📄 License
-[MIT License](LICENSE) — free to use with attribution.
+## 🎓 Author
+**Eliasse TIAO** — Google DeepMind Scholar | M.Sc. AI Student @ AIMS.
